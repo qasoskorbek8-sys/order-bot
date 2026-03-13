@@ -1,35 +1,9 @@
-import sqlite3
+from motor.motor_asyncio import AsyncIOMotorClient
+import os
 
-conn = sqlite3.connect("data/orders.db", check_same_thread=False)
-cursor = conn.cursor()
+MONGO_URL = os.getenv("mongodb+srv://qasoskorbek8_db_user:CFQuBXFhgFSdHRtN@cluster0.m1tezqo.mongodb.net/start") 
 
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS orders (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    phone TEXT,
-    product TEXT,
-    width REAL,
-    height REAL,
-    status TEXT
-)
-""")
+client = AsyncIOMotorClient(MONGO_URL)
+db = client["order_bot"]
 
-conn.commit()
-
-def save_order(user_id, phone, product, w, h):
-    cursor.execute(
-        "INSERT INTO orders VALUES (NULL,?,?,?,?,?)",
-        (user_id, phone, product, w, h, "Yangi")
-    )
-    conn.commit()
-
-
-
-
-def update_status(order_id, status):
-    cursor.execute(
-        "UPDATE orders SET status=? WHERE id=?",
-        (status, order_id)
-    )
-    conn.commit()
+orders_collection = db["orders"]
