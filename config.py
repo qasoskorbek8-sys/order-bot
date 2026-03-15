@@ -1,5 +1,5 @@
-TOKEN = "8562965055:AAFohkUNzB8XK4zlgkgS_77UcrsQsRSySwM"
 
+TOKEN = "8562965055:AAFohkUNzB8XK4zlgkgS_77UcrsQsRSySwM"
 ADMINS = [
     2119551732,
     8130090868,
@@ -12,6 +12,17 @@ ADMINS = [
 
 # TOKEN = os.getenv("8562965055:AAFohkUNzB8XK4zlgkgS_77UcrsQsRSySwM")
 
+# ADMINS = [
+#     2119551732,
+#     8130090868,
+#     577071827,
+#     7955697234
+# ]
+
+
+# import os
+
+# TOKEN = os.getenv("8562965055:AAFohkUNzB8XK4zlgkgS_77UcrsQsRSySwM")
 # ADMINS = [
 #     2119551732,
 #     8130090868,
